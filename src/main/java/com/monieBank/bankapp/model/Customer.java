@@ -22,7 +22,15 @@ public class Customer {
     private Long id;
 
     @NotNull
+    private String name;
+
+    @NotNull
     private String userName;
+
+    @NotNull
+    private String password;
+
+    private String roles;
 
     @Column(columnDefinition = "timestamp default current_timestamp")
     private LocalDateTime startDate = LocalDateTime.now();
