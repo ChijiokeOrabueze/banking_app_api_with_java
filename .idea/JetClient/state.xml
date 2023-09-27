@@ -11,6 +11,26 @@
               <option name="name" value="Draft" />
               <option name="url" value="http://localhost:8080/api/v1/transactions/7" />
             </requestState>
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;userName&quot;: &quot;helloe&quot;,&#10;  &quot;password&quot;: &quot;heelo&quot;&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="application/json" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="13da950c-c956-46c6-9391-eed1cc4ecec9" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft 1" />
+              <option name="url" value="http://localhost:8080/api/v1/users/authenticate" />
+            </requestState>
           </list>
         </option>
       </draftsState>

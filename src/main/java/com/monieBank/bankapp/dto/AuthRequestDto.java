@@ -3,15 +3,12 @@ package com.monieBank.bankapp.dto;
 
 
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Data
-@NoArgsConstructor
 public class AuthRequestDto {
 
     @NotEmpty(message = "username is required.")

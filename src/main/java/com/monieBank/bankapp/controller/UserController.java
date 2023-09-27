@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.annotation.Validated;
@@ -26,10 +27,10 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class UserController {
 
-    private final UserService userService;
-    private final AuthenticationManager authenticationManager;
-    private final UserDetailsService userDetailsService;
-    private final JwtService jwtService;
+    private UserService userService;
+    private AuthenticationManager authenticationManager;
+    private UserDetailsService userDetailsService;
+    private JwtService jwtService;
 
 
     @PostMapping()
@@ -42,16 +43,26 @@ public class UserController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<ApiResponse<AuthResponseDto>> authenticate (@Valid @RequestBody AuthRequestDto authRequest) throws Exception {
+        System.out.println(authRequest.getUserName());
 
-        try{
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword())
-            );
+        System.out.println("hello4");
 
-        }catch (BadCredentialsException e){
-            throw new Exception("Incorrect username or password", e);
+        Authentication auth =  authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword())
+        );
 
-        }
+        System.out.println("hello");
+        System.out.println(auth.isAuthenticated());
+
+//        try{
+//
+//
+//
+//
+//        }catch (BadCredentialsException e){
+//            throw new Exception("Incorrect username or password", e);
+//
+//        }
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUserName());
 

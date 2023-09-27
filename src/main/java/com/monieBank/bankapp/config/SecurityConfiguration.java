@@ -28,20 +28,27 @@ public class SecurityConfiguration {
     @Autowired
     private JwtAuthFilter authFilter;
 
+
+//    @Autowired
+//    private UserDetailsService userDetailsService;
     @Bean
     public UserDetailsService userDetailsService() {
         return new UserInfoService();
     }
+
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/").permitAll()
+                .requestMatchers("/api/v1/users/authenticate").permitAll()
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/").authenticated()
+                .requestMatchers("/api/v1/transactions/**").authenticated()
+                .and()
+                .authorizeHttpRequests()
+                .anyRequest().permitAll()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

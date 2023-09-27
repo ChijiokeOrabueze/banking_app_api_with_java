@@ -1,11 +1,10 @@
 package com.monieBank.bankapp.dto;
 
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Data
 public class AuthResponseDto {

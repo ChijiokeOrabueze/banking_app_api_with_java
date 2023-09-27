@@ -4,7 +4,10 @@ package com.monieBank.bankapp.service;
 import com.monieBank.bankapp.dto.UserRequestDto;
 import com.monieBank.bankapp.model.Customer;
 import com.monieBank.bankapp.repository.UserRepository;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,12 +19,15 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 
-@RequiredArgsConstructor
+
 @Service
 @Primary
 public class UserInfoService implements UserDetailsService, UserService {
 
+    @Autowired
     private UserRepository userRepository;
+
+    @Autowired
     private PasswordEncoder encoder;
 
     @Override
