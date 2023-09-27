@@ -20,10 +20,10 @@ public class JwtService {
     private static final String SECRET = "7skdhdk7dkdkdldkkd";
     
     
-    public  String generateToken(String userName) {
+    public  String generateToken(UserDetails user) {
         Map<String, Object> claims = new HashMap<>();
         
-        return createToken(claims, userName)
+        return createToken(claims, user.getUsername());
     }
 
     private String createToken(Map<String, Object> claims, String userName) {

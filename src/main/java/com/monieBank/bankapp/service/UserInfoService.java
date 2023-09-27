@@ -5,6 +5,7 @@ import com.monieBank.bankapp.dto.UserRequestDto;
 import com.monieBank.bankapp.model.Customer;
 import com.monieBank.bankapp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
+@Primary
 public class UserInfoService implements UserDetailsService, UserService {
 
     private UserRepository userRepository;
